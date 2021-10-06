@@ -8,13 +8,22 @@ body {
 
 .container {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-  width: 40vw;
+  width: 30vw;
   height: 70vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 
-.display-box {
+.result-box {
+  margin: 1rem 0;
+  width: 25vw;
+  height: 8vh;
   border: 1px solid;
+}
+
+.operator button {
+  margin: 0 0.5rem;
+  padding: 1rem 2rem;
 }
