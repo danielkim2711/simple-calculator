@@ -45,12 +45,11 @@ button {
   margin: 1rem 0;
 }
 
-.equal {
+.equal-sign {
   background-color: #4d90fe;
   color: #fff;
 }
 
 .panel {
   display: inline-block;
-  /* border: 1px solid black; */
 }
