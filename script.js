@@ -1,9 +1,11 @@
-input = document.getElementById('input');
+let input = document.getElementById('input');
 
-function printNumber(value) {
-  input.innerHTML += value;
+function printValue(value) {
+  return (input.innerHTML += value);
 }
 
 function clearNumber() {
-  input.innerHTML = '';
+  return (input.innerHTML = '');
 }
+
+function calculate() {}

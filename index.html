@@ -11,34 +11,34 @@
     <div class="container">
       <div class="input" id="input"></div>
       <div class="operators">
-        <button>+</button>
-        <button>-</button>
-        <button>&times;</button>
-        <button>&divide;</button>
+        <button onClick="printValue('+')">+</button>
+        <button onClick="printValue('-')">-</button>
+        <button onClick="printValue('&times;')">&times;</button>
+        <button onClick="printValue('&divide;')">&divide;</button>
       </div>
       <div class="panel">
         <div class="numbers">
-          <button onClick="printNumber(7)">7</button>
-          <button onClick="printNumber(8)">8</button>
-          <button onClick="printNumber(9)">9</button>
+          <button onClick="printValue(7)">7</button>
+          <button onClick="printValue(8)">8</button>
+          <button onClick="printValue(9)">9</button>
         </div>
         <div class="numbers">
-          <button onClick="printNumber(4)">4</button>
-          <button onClick="printNumber(5)">5</button>
-          <button onClick="printNumber(6)">6</button>
+          <button onClick="printValue(4)">4</button>
+          <button onClick="printValue(5)">5</button>
+          <button onClick="printValue(6)">6</button>
         </div>
         <div class="numbers">
-          <button onClick="printNumber(1)">1</button>
-          <button onClick="printNumber(2)">2</button>
-          <button onClick="printNumber(3)">3</button>
+          <button onClick="printValue(1)">1</button>
+          <button onClick="printValue(2)">2</button>
+          <button onClick="printValue(3)">3</button>
         </div>
         <div class="numbers">
-          <button onClick="printNumber(0)">0</button>
-          <button onClick="printNumber('.')">.</button>
+          <button onClick="printValue(0)">0</button>
+          <button onClick="printValue('.')">.</button>
           <button onclick="clearNumber()">C</button>
         </div>
       </div>
-      <button class="equal-sign">=</button>
+      <button class="equal-sign" onclick="calculate()">=</button>
     </div>
     <script src="script.js"></script>
   </body>
