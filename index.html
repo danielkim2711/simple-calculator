@@ -5,41 +5,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Calculator</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
-    <div class="container">
-      <div class="input" id="input"></div>
+    <div class="calculator">
+      <div class="output">
+        <p class="previousOperand">123456789+-*/</p>
+        <p class="currentOperand">123456789+-*/</p>
+      </div>
       <div class="operators">
-        <button onClick="printValue('+')">+</button>
-        <button onClick="printValue('-')">-</button>
-        <button onClick="printValue('&times;')">&times;</button>
-        <button onClick="printValue('&divide;')">&divide;</button>
+        <button data-key="+">+</button>
+        <button data-key="-">-</button>
+        <button data-key="&times;">&times;</button>
+        <button data-key="&divide;">&divide;</button>
       </div>
-      <div class="panel">
-        <div class="numbers">
-          <button onClick="printValue(7)">7</button>
-          <button onClick="printValue(8)">8</button>
-          <button onClick="printValue(9)">9</button>
+      <div class="input-container">
+        <div class="numbers-container">
+          <div class="numbers">
+            <button data-key="7">7</button>
+            <button data-key="8">8</button>
+            <button data-key="9">9</button>
+          </div>
+          <div class="numbers">
+            <button data-key="4">4</button>
+            <button data-key="5">5</button>
+            <button data-key="6">6</button>
+          </div>
+          <div class="numbers">
+            <button data-key="1">1</button>
+            <button data-key="2">2</button>
+            <button data-key="3">3</button>
+          </div>
+          <div class="numbers">
+            <button data-key="0">0</button>
+            <button data-key=".">.</button>
+            <button data-key="c">C</button>
+          </div>
         </div>
-        <div class="numbers">
-          <button onClick="printValue(4)">4</button>
-          <button onClick="printValue(5)">5</button>
-          <button onClick="printValue(6)">6</button>
-        </div>
-        <div class="numbers">
-          <button onClick="printValue(1)">1</button>
-          <button onClick="printValue(2)">2</button>
-          <button onClick="printValue(3)">3</button>
-        </div>
-        <div class="numbers">
-          <button onClick="printValue(0)">0</button>
-          <button onClick="printValue('.')">.</button>
-          <button onclick="clearNumber()">C</button>
-        </div>
+        <button data-key="=" class="equal-sign">=</button>
       </div>
-      <button class="equal-sign" onclick="calculate()">=</button>
     </div>
-    <script src="script.js"></script>
+    <footer>
+      <p>Daniel Kim 2022</p>
+    </footer>
   </body>
 </html>
