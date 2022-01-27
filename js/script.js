@@ -47,3 +47,4 @@ numberButtons.forEach((button) =>
   button.addEventListener('click', () => appendNumber(button.textContent))
 );
 allClearButton.addEventListener('click', clear);
+deleteButton.addEventListener('click', deleteNumber);
