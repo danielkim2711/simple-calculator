@@ -35,6 +35,7 @@ button {
 /* Calculator */
 
 .calculator {
+  border-radius: 10px;
   box-shadow: 0 4px 8px 0 var(--secondary-color),
     0 6px 20px 0 var(--secondary-color);
   padding: 8px 16px 16px;
@@ -78,18 +79,27 @@ button {
   margin: 16px 0;
 }
 
-.numbers button:hover {
+.numbers button:hover,
+.delete:hover {
   background-color: rgb(220, 220, 220);
 }
 
-.equal-sign {
-  background-color: rgb(70, 140, 255);
-  color: #fff;
-  height: 290px;
-  margin-left: 10px;
+.delete-equals-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 320px;
+  margin-left: 5px;
 }
 
-.equal-sign:hover {
+.equals {
+  background-color: rgb(70, 140, 255);
+  color: #fff;
+  height: 215px;
+  margin-top: 15px;
+}
+
+.equals:hover {
   background-color: rgb(50, 120, 255);
 }
 
