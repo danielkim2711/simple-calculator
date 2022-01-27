@@ -48,19 +48,23 @@ button {
   height: 90px;
   margin: 16px 4px;
   padding: 8px;
+  width: 365px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
 .output > div {
-  font-size: 32px;
   margin: 0;
 }
 
-.output > div:nth-of-type(1) {
+.previous-operand {
   color: rgba(0, 0, 0, 0.5);
   font-size: 28px;
+}
+
+.current-operand {
+  font-size: 32px;
 }
 
 .operators > button {
