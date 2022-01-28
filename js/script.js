@@ -7,20 +7,25 @@ const previousOperand = document.querySelector('[data-previous-operand]');
 const currentOperand = document.querySelector('[data-current-operand]');
 
 function appendNumber(number) {
+  if (currentOperand.textContent === '0' && number !== '.')
+    currentOperand.textContent = currentOperand.textContent.substring(1);
+  if (currentOperand.textContent === '0' && number === '0') return;
   if (number === '.' && currentOperand.textContent.includes('.')) return;
-  if (currentOperand.textContent.length < 20)
-    return (currentOperand.textContent += number);
+  if (currentOperand.textContent.length < 20) {
+    currentOperand.textContent += number;
+  }
 }
 
 function deleteNumber() {
-  currentOperand.textContent = currentOperand.textContent
-    .toString()
-    .slice(0, -1);
+  if (currentOperand.textContent !== '0')
+    currentOperand.textContent = currentOperand.textContent
+      .toString()
+      .slice(0, -1);
 }
 
 function clear() {
   previousOperand.textContent = '';
-  currentOperand.textContent = '';
+  currentOperand.textContent = '0';
 }
 
 function updateDisplay() {}
@@ -46,5 +51,5 @@ function operate() {}
 numberButtons.forEach((button) =>
   button.addEventListener('click', () => appendNumber(button.textContent))
 );
-allClearButton.addEventListener('click', clear);
 deleteButton.addEventListener('click', deleteNumber);
+allClearButton.addEventListener('click', clear);
