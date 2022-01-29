@@ -6,6 +6,8 @@ const allClearButton = document.querySelector('[data-all-clear]');
 const previousOperand = document.querySelector('[data-previous-operand]');
 const currentOperand = document.querySelector('[data-current-operand]');
 
+let screenReset = false;
+
 function appendNumber(number) {
   if (currentOperand.textContent === '0' && number === '0') return;
 
@@ -14,16 +16,14 @@ function appendNumber(number) {
   if (currentOperand.textContent === '0' && number !== '.')
     currentOperand.textContent = currentOperand.textContent.substring(1);
 
-  // if (
-  //   previousOperand.textContent.includes('+') ||
-  //   previousOperand.textContent.includes('-') ||
-  //   previousOperand.textContent.includes('×') ||
-  //   previousOperand.textContent.includes('÷')
-  // )
-  //   currentOperand.textContent = '';
-
   if (currentOperand.textContent.length < 20)
     currentOperand.textContent += number;
+
+  if (screenReset) {
+    currentOperand.textContent = '';
+    currentOperand.textContent += number;
+    screenReset = false;
+  }
 }
 
 function deleteNumber() {
@@ -62,6 +62,8 @@ function chooseOperation(operation) {
     currentOperand.textContent = operate(operation);
   }
   previousOperand.textContent = `${currentOperand.textContent} ${operation}`;
+
+  screenReset = true;
 }
 
 function operate(operation) {
