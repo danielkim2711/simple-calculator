@@ -60,12 +60,7 @@ function divide(num1, num2) {
 }
 
 function chooseOperation(operation) {
-  if (
-    previousOperand.textContent !== '' &&
-    previousOperand.textContent.includes(operation)
-  ) {
-    evaluate();
-  }
+  if (previousOperand.textContent !== '') evaluate();
   firstOperand = currentOperand.textContent;
   currentOperation = operation;
   previousOperand.textContent = `${currentOperand.textContent} ${operation}`;
