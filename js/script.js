@@ -6,6 +6,9 @@ const allClearButton = document.querySelector('[data-all-clear]');
 const previousOperand = document.querySelector('[data-previous-operand]');
 const currentOperand = document.querySelector('[data-current-operand]');
 
+let firstOperand = '';
+let secondOperand = '';
+let currentOperation = null;
 let screenReset = false;
 
 function appendNumber(number) {
@@ -57,13 +60,28 @@ function divide(num1, num2) {
 }
 
 function chooseOperation(operation) {
-  if (currentOperand.textContent === '') return;
-  if (previousOperand.textContent !== '') {
-    currentOperand.textContent = operate(operation);
+  if (
+    previousOperand.textContent !== '' &&
+    previousOperand.textContent.includes(operation)
+  ) {
+    evaluate();
   }
+  firstOperand = currentOperand.textContent;
+  currentOperation = operation;
   previousOperand.textContent = `${currentOperand.textContent} ${operation}`;
-
   screenReset = true;
+}
+
+function evaluate() {
+  if (currentOperation === null || screenReset) return;
+  if (currentOperation === '÷' && currentOperand.textContent === '0') {
+    alert("You can't divide by 0!");
+    return;
+  }
+  secondOperand = currentOperand.textContent;
+  currentOperand.textContent = operate(currentOperation);
+  previousOperand.textContent = `${firstOperand} ${currentOperation} ${secondOperand} =`;
+  currentOperation = null;
 }
 
 function operate(operation) {
@@ -78,8 +96,8 @@ function operate(operation) {
     case '×':
       return multiply(prev, current);
     case '÷':
-      if (current === 0) return null;
-      else return divide(prev, current);
+      if (current === 0 && prev === 0) return null;
+      return divide(prev, current);
     default:
       return null;
   }
@@ -93,4 +111,4 @@ operationButtons.forEach((button) =>
 );
 deleteButton.addEventListener('click', deleteNumber);
 allClearButton.addEventListener('click', clear);
-equalsButton.addEventListener('click', operate);
+equalsButton.addEventListener('click', evaluate);
